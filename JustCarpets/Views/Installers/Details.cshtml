@@ -1,0 +1,118 @@
+﻿@model JustCarpets.Models.InstallerDetailsDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Installer Details </h2>
+
+<div>
+    <h4>@Model.LocationName</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Location Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationName)
+        </dd>
+        <dt>
+            Company Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+    </dl>
+</div>
+
+<div class="col-lg-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Rates</div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Price for Half Day</th>
+                </tr>
+                </thead>
+                <tbody>
+     
+                @foreach (var item in Model.Rates)
+                {
+                    <tr>
+                        <td>@item.Type.ToString()</td>
+                        <td>£ @item.Price</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Orders Comming up </div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Order Id</th>
+                    <th>AM/PM</th>
+                    <th>Customer Post Code</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Appointments)
+                {
+                    <tr>
+                        <td>@item.Date.ToShortDateString()</td>
+                        <td>@item.OrderId</td>
+                        <td>
+                            @if (item.AM)
+                            {
+                                <b>AM</b>
+                            }
+                            else
+                            {
+                                <b>PM</b>
+                            }
+                        </td>
+                        <td>@item.PostCode</td>
+                        <td><button class="btn btn-danger">cancel</button></td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<div class="clearfix col-lg-12">
+     
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        <a asp-action="Index">Back to List</a>
+    </div>

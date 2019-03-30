@@ -10,7 +10,7 @@ namespace JustCarpets.Data.Entities
 {
 
     [Table("Customer")]
-    public class CompanyLocation
+    public class CustomerEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,6 +19,8 @@ namespace JustCarpets.Data.Entities
         public string Address { get; set; }
         public string TelephoneNumber { get; set; }
         public string EmailAddress { get; set; }
+        public string MacAddress { get; set; }
+        public DateTime Created { get; set; }
         public DateTime AgreedDataProtection { get; set; }
         public DateTime AgreedTerms { get; set; }
         public DateTime AgreedMarketing { get; set; }

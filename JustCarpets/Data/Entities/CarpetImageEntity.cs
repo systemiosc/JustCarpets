@@ -17,5 +17,10 @@ namespace JustCarpets.Data.Entities
         public string AlternateText { get; set; }
         public string Link { get; set; }
         public CarpetImageType ImageType { get; set; }
+
+        public int CarpetId { get; set; }
+
+        public virtual CarpetEntity Carpet { get; set; }
+
     }
 }

@@ -18,6 +18,9 @@ namespace JustCarpets.Data.Entities
         public int CleanupFactor { get; set; }
         public int QualityFactor { get; set; }
         public string Comments { get; set; }
-
+        public int CustomerOrderId { get; set; }
+        public int InstallerId { get; set; }
+        public virtual CompanyLocationEntity Installer { get; set; }
+        public virtual CustomerOrderEntity CustomerOrder { get; set; }
     }
 }

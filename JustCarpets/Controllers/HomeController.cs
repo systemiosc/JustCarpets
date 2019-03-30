@@ -9,7 +9,7 @@ using JustCarpets.Models;
 
 namespace JustCarpets.Controllers
 {
-    [Authorize]
+
     public class HomeController : Controller
     {
         public IActionResult Index()

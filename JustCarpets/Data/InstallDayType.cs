@@ -9,6 +9,6 @@ namespace JustCarpets.Data
     {
         Weekday = 0,
         Weekend = 1,
-        SpecialDay = 3
+        SpecialDay = 2
     }
 }

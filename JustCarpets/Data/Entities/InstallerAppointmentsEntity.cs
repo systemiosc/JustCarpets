@@ -15,13 +15,11 @@ namespace JustCarpets.Data.Entities
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public bool AM { get; set; }
-        public int CompanyLocationId { get; set; }
-        public int CustomerLocationId { get; set; }
+        public int InstallerId { get; set; }
         public int OrderId { get; set; }
-
-        public virtual CompanyLocation Customer { get; set; }
         public virtual CustomerOrderEntity Order { get; set; }
-        public virtual CompanyLocation ComapnyLocation { get; set; }
+        public virtual CompanyLocationEntity Installer { get; set; }
+
 
     }
 }
