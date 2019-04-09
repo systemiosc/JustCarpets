@@ -38,6 +38,8 @@ namespace JustCarpets.Services
                     AM = e.AM
                 }).ToList();
 
+                response.Success = true;
+
             }
             catch (Exception ex)
             {
@@ -72,6 +74,17 @@ namespace JustCarpets.Services
                         Price = e.HalfDayRate
                     }).ToList()
                 };
+
+                var appointmentsResults =
+                    await _dbContext.InstallerAppointments.Where(e => e.InstallerId == id).ToListAsync();
+
+                response.Results.Appointments = appointmentsResults.Select(e => new InstallerOrder()
+                {
+                    AM = e.AM,
+                    Date = e.Date,
+                    OrderId = e.OrderId
+                }).ToList();
+
                 response.Success = true;
             }
             catch (Exception ex)

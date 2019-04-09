@@ -8,6 +8,14 @@ namespace JustCarpets.Models
 {
     public class FlooringDto
     {
+
+        public FlooringDto()
+        {
+            Properties = new List<string>();
+            Images = new List<FlooringImageDto>();
+            Sizes = new List<FlooringSizeDto>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

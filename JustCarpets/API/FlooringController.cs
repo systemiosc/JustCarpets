@@ -47,7 +47,7 @@ namespace JustCarpets.API
 
             if (response.Success)
             {
-                return Ok(response.Results);
+                return Ok(response.Results.FirstOrDefault());
             }
             else
             {

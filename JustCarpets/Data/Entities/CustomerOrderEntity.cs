@@ -16,10 +16,10 @@ namespace JustCarpets.Data.Entities
         public DateTime Created { get; set; }
         public decimal TotalPrice { get; set; }
         public int CustomerId { get; set; }
-        public int InstallerReviewId { get; set; }
-        public int InstallerDate { get; set; }
+        public int? InstallerReviewId { get; set; }
+        public int? InstallerDate { get; set; }
        // public int InstallerAppointmentId { get; set; }
-        public DateTime ReviewDate { get; set; }
+        public DateTime? ReviewDate { get; set; }
         public List<OrderLineEntity> OrderLines { get; set; } = new List<OrderLineEntity>();
         public virtual CustomerEntity Customer { get; set; }
       //  public virtual InstallerAppointmentsEntity InstallerAppointment { get; set; }

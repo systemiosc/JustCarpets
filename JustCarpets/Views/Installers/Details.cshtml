@@ -43,9 +43,9 @@
     </dl>
 </div>
 
-<div class="col-lg-5">
+<div class="col-lg-6">
     <div class="panel panel-primary">
-        <div class="panel-heading">Rates</div>
+        <div class="panel-heading">Current Rates</div>
         <div class="panel-body">
             <table class="table table-condensed">
                 <thead>
@@ -69,9 +69,9 @@
     </div>
 </div>
 
-<div class="col-lg-5">
+<div class="col-lg-6">
     <div class="panel panel-primary">
-        <div class="panel-heading">Orders Comming up </div>
+        <div class="panel-heading">Customer Orders </div>
         <div class="panel-body">
             <table class="table table-condensed">
                 <thead>
@@ -100,7 +100,12 @@
                             }
                         </td>
                         <td>@item.PostCode</td>
-                        <td><button class="btn btn-danger">cancel</button></td>
+                        <td>
+                            @Html.ActionLink("Order","Details",
+                                new { controller = "Orders", id = item.OrderId },
+                                new { @class = "btn btn-default" }) | 
+                            <button class="btn btn-danger">cancel</button>
+                        </td>
                     </tr>
                 }
                 </tbody>
@@ -110,7 +115,7 @@
 </div>
 
 
-<br />
+
 <div class="clearfix col-lg-12">
      
         @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |

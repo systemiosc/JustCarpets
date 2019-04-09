@@ -48,6 +48,7 @@ namespace JustCarpets
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IInstallerService, InstallerService>();
             services.AddTransient<IFlooringService, FlooringService>();
+            services.AddTransient<IOrderService, OrderService>();
 
             services.AddMvc(options =>
             {

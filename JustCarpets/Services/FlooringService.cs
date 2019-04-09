@@ -85,6 +85,9 @@ namespace JustCarpets.Services
                 var flooring = await _dbContext.Carpets.Include(e => e.Propertys).Include(e => e.Images)
                     .Include(e => e.CarpetColourPallets).Include(e => e.Options).Where(e => e.Id == Id)
                     .SingleOrDefaultAsync();
+                    
+                flooring.Propertys.Add(new CarpetPropertyEntity(){BulletPoint = "Test property one"});
+                flooring.Propertys.Add(new CarpetPropertyEntity() { BulletPoint = "Test property two" });
 
                 response.Results.Add(new FlooringDto()
                 {
@@ -94,9 +97,10 @@ namespace JustCarpets.Services
                     PetFriendly = flooring.PetFriendly,
                     PriceM2 = flooring.PriceM2,
                     Images = flooring.Images.Select(e => new FlooringImageDto(){Id = e.Id, AlternateText = e.AlternateText, ImageName = e.ImageName, ImageType = e.ImageType}).ToList(),
-                    Properties = flooring.Propertys.Select(e => e.BulletPoint).ToList()
+                  Properties = flooring.Propertys.Select(e => e.BulletPoint).ToList()
                 });
 
+                response.Success = true;
             }
             catch (Exception ex)
             {
